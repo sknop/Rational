@@ -102,4 +102,11 @@ class Rational:
         else:
             return False
 
+    def __lt__(self, other):
+        if isinstance(other, Rational):
+            return self.nomin * other.denom < self.denom * other.nomin
+        elif isinstance(other, int):
+            return self.nomin < self.denom * other
+        else:
+            raise Exception("Cannot compare a Rational object with an object of type {}".format(other.__class__))
 

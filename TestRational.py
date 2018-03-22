@@ -99,6 +99,19 @@ class TestRational(unittest.TestCase):
 
         self.assertEqual(a,b)
 
+        c = Rational(2,2)
+
+        self.assertEqual(c, 1)
+
+    def testLessThan(self):
+        a = Rational(2,3)
+        b = Rational(3,4)
+
+        self.assertTrue(a < b)
+        self.assertFalse(b < a)
+
+        self.assertTrue(a < 1)
+        # self.assertFalse(1 < a)
 
 if __name__ == '__main__':
     unittest.main()
