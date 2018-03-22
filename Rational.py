@@ -27,6 +27,10 @@ class Rational:
     def __repr__(self):
         return self.__str__()
 
+    # ----------------------
+    # Mathematical operators
+    # ----------------------
+
     def __add__(self, other):
         if isinstance(other, Rational):
             return Rational(self.nomin * other.denom + other.nomin * self.denom, self.denom * other.denom)
@@ -85,3 +89,17 @@ class Rational:
             return Rational(self.denom * other, self.nomin)
         else:
             raise Exception("Cannot divide a Rational object with an object of type {}".format(other.__class__))
+
+    # --------------------
+    # Comparison operators
+    # --------------------
+
+    def __eq__(self, other):
+        if isinstance(other, Rational):
+            return (self.nomin == other.nomin) and (self.denom == other.denom)
+        elif isinstance(other, int):
+            return (self.nomin == other) and (self.denom == 1)
+        else:
+            return False
+
+
