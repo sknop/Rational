@@ -11,7 +11,13 @@ class TestRational(unittest.TestCase):
         self.assertEqual(a.nomin, 1)
         self.assertEqual(a.denom, 2)
 
-    def testNomalisation(self):
+        try:
+            b = Rational(1,0)
+            self.fail("Did not detect divison by 0")
+        except TypeError:
+            pass
+
+    def testNormalisation(self):
         a = Rational(2,4)
 
         self.assertEqual(a.nomin, 1)

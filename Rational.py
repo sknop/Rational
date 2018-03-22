@@ -10,6 +10,9 @@ def gcd(x,y):
 
 class Rational:
     def __init__(self, x, y=1):
+        if y == 0:
+            raise TypeError("Cannot create Rational object with a denominator of 0")
+
         _gcd = gcd(x,y)
         self.nomin = x // _gcd
         self.denom = y // _gcd
